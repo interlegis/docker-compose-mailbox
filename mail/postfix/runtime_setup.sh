@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-sed -i -e "s/%MAIL_MX_DOMAIN%/${MAIL_MX_DOMAIN}/g" /etc/dovecot/conf.d/15-lda.conf
+sed -i -e "s/%MAIL_DOMAIN%/${MAIL_DOMAIN}/g" /etc/postfix/main.cf
+sed -i -e "s/%MAIL_MX_DOMAIN%/${MAIL_MX_DOMAIN}/g" /etc/postfix/main.cf
 
 # Make mail log to syslog
 sed -i -e "s#/var/log/mail.log#/var/log/syslog#g" /etc/syslog-ng/syslog-ng.conf
