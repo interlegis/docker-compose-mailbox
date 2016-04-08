@@ -1,5 +1,5 @@
 mail:
-  build: mail
+  image: interlegis/mailserver
   env_file:
     - settings.env
   links:
@@ -14,9 +14,10 @@ mail:
     - "25:25"
     - "587:587"
     - "993:993"
+    - "143:143"
 
 opendkim:
-  build: opendkim
+  image: interlegis/opendkim
   env_file:
     - settings.env
   expose:
@@ -26,7 +27,7 @@ opendkim:
 
 # If you only want the mail server and no webmail/admin simply remove webserver and memcache
 webserver:
-  build: webserver
+  image: interlegis/webmailserver
   env_file:
     - settings.env
   ports:
@@ -41,19 +42,19 @@ webserver:
     - mail
 
 spamassassin:
-  build: spamassassin
+  image: interlegis/spamassassin
   expose:
     - "783"
   volumes_from:
     - storagebackup
 
 memcache:
-  build: memcache
+  image: memcached
   expose:
     - "11211"
 
 mysql:
-  build: mysql
+  image: mariadb
   environment:
     - "MYSQL_ROOT_PASSWORD=password"
   env_file:
@@ -66,7 +67,7 @@ mysql:
 
 # Storage container for vmail that also creates daily backups
 storagebackup:
-  build: storagebackup
+  image: interlegis/mailstorage
   env_file:
     - settings.env
   links:
