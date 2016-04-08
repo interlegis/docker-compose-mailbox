@@ -54,7 +54,7 @@ memcache:
     - "11211"
 
 mysql:
-  image: mariadb
+  image: interlegis/mariadb-slim
   environment:
     - "MYSQL_ROOT_PASSWORD=password"
   env_file:
