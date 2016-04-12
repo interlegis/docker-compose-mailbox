@@ -34,10 +34,19 @@ else
   echo "Creating DB and Superuser"
   mysql -u root -ppassword -h mysql < /tmp/vimbadmin/db_setup.sql &> /dev/null && \
 
+  if [ -z "$MAIL_MAX_QUOTA" ]; then 
+    MAIL_MAX_QUOTA=0
+  else 
+    MAIL_MAX_QUOTA=$(( $MAIL_MAX_QUOTA * 1024 * 1024 ))
+  fi 
+  if [ -z "$MAIL_MAX_MBOXES" ]; then 
+    MAIL_MAX_MBOXES=0; 
+  fi
+
   HASH_PASS=`php -r "echo password_hash('$VIMBADMIN_SUPERUSER_PASSWORD', PASSWORD_DEFAULT);"`
   cd $vimbadmin_install_path && ./bin/doctrine2-cli.php orm:schema-tool:create && \
   mysql -u vimbadmin -ppassword -h mysql vimbadmin -e \
-    "INSERT INTO admin (username, password, super, active, created, modified) VALUES ('$VIMBADMIN_SUPERUSER', '$HASH_PASS', 1, 1, NOW(), NOW())" && \
+    "INSERT INTO admin (username, password, super, active, created, modified) VALUES ('$VIMBADMIN_SUPERUSER', '$HASH_PASS', 1, 1, NOW(), NOW()); INSERT INTO domain (domain, max_quota, quota, max_mailboxes, transport, active, created, modified) VALUES ('$MAIL_DOMAIN', '$MAIL_MAX_QUOTA', '$MAIL_MAX_QUOTA', '$MAIL_MAX_MBOXES', 'virtual', 1, NOW(), NOW());" && \
   echo "Vimbadmin setup completed successfully"
 fi
 
