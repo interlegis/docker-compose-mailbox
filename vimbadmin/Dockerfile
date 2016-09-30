@@ -48,6 +48,6 @@ COPY start.sh /usr/local/bin/start.sh
 COPY application.ini /var/www/html/application/configs/application.ini
 
 VOLUME /etc/nginx/conf.d
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/vimbadmin.conf
 
 CMD ["/usr/local/bin/start.sh"]
