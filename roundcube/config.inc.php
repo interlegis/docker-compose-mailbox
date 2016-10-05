@@ -35,6 +35,16 @@ $config['default_host'] = 'imaps://mail';
 // TCP port used for IMAP connections
 $config['default_port'] = 993;
 
+// IMAP socket context options
+// See http://php.net/manual/en/context.ssl.php
+$config['imap_conn_options'] = array(
+  'ssl'         => array(
+     'verify_peer'       => true,
+     'verfify_peer_name' => true,
+     'allow_self_signed' => true,
+     'peer_name'         => '%MAIL_DOMAIN%'
+  ),
+);
 // ----------------------------------
 // SMTP
 // ----------------------------------

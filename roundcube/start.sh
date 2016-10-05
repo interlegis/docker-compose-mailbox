@@ -8,6 +8,7 @@ fi
 sed -i -e "s/%ROUNDCUBE_DOMAIN%/${ROUNDCUBE_DOMAIN}/g" /etc/nginx/conf.d/roundcube.conf
 sed -i -e "s#%RANDOM_DES_KEY%#`openssl rand -base64 16`#g" ${INSTALL_PATH}/config/config.inc.php
 sed -i -e "s/%DB_PASSWORD%/${MYSQL_ENV_MYSQL_ROOT_PASSWORD}/g" ${INSTALL_PATH}/config/config.inc.php
+sed -i -e "s/%MAIL_DOMAIN%/${MAIL_DOMAIN}/g" ${INSTALL_PATH}/config/config.inc.php
 sed -i -e "s/%PASSDB_USER%/${PASSDB_USER}/g" ${INSTALL_PATH}/plugins/password/config.inc.php
 sed -i -e "s/%PASSDB_PASSWORD%/${PASSDB_PASSWORD}/g" ${INSTALL_PATH}/plugins/password/config.inc.php
 sed -i -e "s/%PASSDB_HOST%/${PASSDB_HOST}/g" ${INSTALL_PATH}/plugins/password/config.inc.php
