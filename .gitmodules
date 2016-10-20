@@ -13,3 +13,6 @@
 [submodule "vimbadmin"]
 	path = vimbadmin
 	url = https://github.com/interlegis/docker-ilmail-vimbadmin.git
+[submodule "spamassassin"]
+	path = spamassassin
+	url = https://github.com/interlegis/docker-ilmail-spamassassin.git
