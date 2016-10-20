@@ -1,0 +1,3 @@
+[submodule "mail"]
+	path = mail
+	url = https://github.com/interlegis/docker-ilmail-mailbox.git
