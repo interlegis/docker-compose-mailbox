@@ -4,3 +4,6 @@
 [submodule "mysql"]
 	path = mysql
 	url = https://github.com/interlegis/docker-mariadb-slim.git
+[submodule "opendkim"]
+	path = opendkim
+	url = https://github.com/interlegis/docker-ilmail-opendkim.git
