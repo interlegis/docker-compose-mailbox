@@ -10,3 +10,6 @@
 [submodule "roundcube"]
 	path = roundcube
 	url = https://github.com/interlegis/docker-ilmail-roundcube.git
+[submodule "vimbadmin"]
+	path = vimbadmin
+	url = https://github.com/interlegis/docker-ilmail-vimbadmin.git
