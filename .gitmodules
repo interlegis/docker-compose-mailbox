@@ -7,3 +7,6 @@
 [submodule "opendkim"]
 	path = opendkim
 	url = https://github.com/interlegis/docker-ilmail-opendkim.git
+[submodule "roundcube"]
+	path = roundcube
+	url = https://github.com/interlegis/docker-ilmail-roundcube.git
