@@ -16,3 +16,6 @@
 [submodule "spamassassin"]
 	path = spamassassin
 	url = https://github.com/interlegis/docker-ilmail-spamassassin.git
+[submodule "storagebackup"]
+	path = storagebackup
+	url = https://github.com/interlegis/docker-ilmail-storagebackup.git
